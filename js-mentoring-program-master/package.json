@@ -1,6 +1,6 @@
 {
   "name": "js-mentoring-program",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Repository for learning tasks",
   "main": "index.js",
   "scripts": {
@@ -14,11 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.epam.com/Dzmitry_Shaplyka/js-mentoring-program.git"
+    "url": "https://github.com/lDaMikol/jsmpm"
   },
   "authors": [
-    "Dzmitry_Shaplyka@epam.com",
-    "Oleksandr_Halichenko@epam.com"
+    "Dzmitry_Mishchanko@epam.com"
   ],
   "license": "ISC",
   "dependencies": {
