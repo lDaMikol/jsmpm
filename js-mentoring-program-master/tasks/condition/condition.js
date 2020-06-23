@@ -7,11 +7,9 @@
   const a = 3,
         b = 2;
 
-  if (a + b < 4) {
-    console.log('wrong');
-  } else {
-    console.log('too much');
-  }
+(a + b < 4)
+  ? console.log('wrong')
+  : console.log('too much');
 }
 
 /** TODO
@@ -23,6 +21,19 @@
 {
     const x = 3;
     const y = 7;
+    let z= 0;
+
+// Task 1
+    if (x >=10 && y >=10 ) {
+      z = x * y;
+    } else {
+      z = x + y;  
+ }
+ 
+ //Task 2
+ (x >=10 && y >=10 )
+  ? z = x * y
+  : z = x + y;
 }
 
 /** TODO
@@ -35,4 +46,14 @@
     const x = 3;
     const y = 7;
     const operator = "add";
+
+    if (operator === "add") {
+      z = x + y
+    } else if (operator === "subtract") {
+      z = x - y
+    } else if (operator === "multiply") {
+      z = x * y
+    } else if (operator === "divide") {
+      z = x / y
+    };
 }

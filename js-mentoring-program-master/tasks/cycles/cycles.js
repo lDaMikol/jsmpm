@@ -13,7 +13,15 @@
 function calculateDiscount(redemption) {
   let discount;
 
-  //PLACE YOUR CODE HERE
+  if (redemption <= 350) {
+    discount = 0;
+} else if (redemption <= 1350) {
+    discount = 15;
+} else if (redemption <= 2700) {
+    discount = 30;
+} else if (redemption <= 6500) {
+    discount = 45;
+};
 
   return discount;
 }
@@ -23,6 +31,28 @@ function calculateDiscount(redemption) {
  */
 {
   const i = 10; //10! = 3628800
+  let fact = 1;
+
+// for
+    for (let i = 1; i <= 10; i++) {
+        fact *= i;
+    }
+
+// while
+    let index = 1;
+    fact = 1;
+    while (index <= 10) {
+        fact *= index;
+        index++;
+    }
+
+    index = 1;
+    fact = 1;
+// do .. while
+    do {
+        fact *= index;
+        index++;
+    } while (index <= 10);
 }
 
 /**
@@ -30,6 +60,11 @@ function calculateDiscount(redemption) {
  */
 {
   const substr = ["I", " love", " JS"];
+  let str = '';
+
+  for (let i = 0; i < substr.length; i++) {
+    str+=substr[i];
+}
 }
 
 /**
@@ -42,6 +77,11 @@ function calculateDiscount(redemption) {
     interestOnDeposit: 250,
     otherExpences: -300
   };
+  let total = 0;
+
+  for (key in personIncomes) {
+    total += personIncomes[key];
+  }
 }
 
 module.exports = calculateDiscount;
