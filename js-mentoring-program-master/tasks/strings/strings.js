@@ -4,6 +4,11 @@
  * @param {string} str
  */
 function reverseString(str) {
+  if (typeof str === 'number') {
+    return 'This is not a string';
+}
+
+return str.split('').reverse().join('');
 }
 
 /**
@@ -12,7 +17,7 @@ function reverseString(str) {
 * @param {number} year
 */
 function centuryFromYear(year) {
-
+  return parseInt(year / 100 + 1);
 }
 
 /**
@@ -21,6 +26,15 @@ function centuryFromYear(year) {
  * @param {string} char
  */
 function strCount(str, char) {
+  let count = 0;
+ 
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === char) {
+            count++;
+        }
+    }
+ 
+    return count;
 }
 
 /**
@@ -30,6 +44,14 @@ function strCount(str, char) {
  * @param {num} num - by wht amount of chars it should be truncated
  */
 function truncateString(str, num) {
+  let truncatedString = str;
+ 
+    if (truncatedString.length > num) {
+        truncatedString.slice(0, num);
+        truncatedString += '…';
+    }
+ 
+    return truncatedString;
 }
 
 /**
@@ -40,7 +62,11 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
+  if (text.includes('10')) {
+    return text.replace('10', 'ten');
+}
 
+return text;
 }
 
 /**
@@ -51,7 +77,11 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
+  const start = text.indexOf('[');
+  const end = text.indexOf(']');
 
+  const result = text.substr(0, start + 1) + 'CONFIDENTIAL' + text.substr(end, text.length);
+  return result;
 }
 
 module.exports = {
