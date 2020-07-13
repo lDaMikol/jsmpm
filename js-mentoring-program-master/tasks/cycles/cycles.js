@@ -9,35 +9,42 @@
  * @param {number} redemption amount (0 - 9999)
  * @returns {number} discount in percent
  */
-
+ 
 function calculateDiscount(redemption) {
   let discount;
-
-  if (redemption <= 350) {
-    discount = 0;
-} else if (redemption <= 1350) {
-    discount = 15;
-} else if (redemption <= 2700) {
-    discount = 30;
-} else if (redemption <= 6500) {
-    discount = 45;
-};
-
+ 
+  switch(true) {
+    case(redemption <= 350):
+      discount = 0;
+      break;
+    case(redemption <= 1350):
+      discount = 15;
+      break;
+    case(redemption <= 2700):
+      discount = 30;
+      break;
+    case(redemption <= 6500):
+      discount = 45;
+      break;
+    default:
+      discount = 0;
+  }
+ 
   return discount;
 }
-
+ 
 /** TODO
  * implement factorial algorithm using for, while, do..while operators
  */
 {
   const i = 10; //10! = 3628800
   let fact = 1;
-
+ 
 // for
     for (let i = 1; i <= 10; i++) {
         fact *= i;
     }
-
+ 
 // while
     let index = 1;
     fact = 1;
@@ -45,7 +52,7 @@ function calculateDiscount(redemption) {
         fact *= index;
         index++;
     }
-
+ 
     index = 1;
     fact = 1;
 // do .. while
@@ -54,19 +61,15 @@ function calculateDiscount(redemption) {
         index++;
     } while (index <= 10);
 }
-
+ 
 /**
  * return concatenated string from an array of substring
  */
 {
   const substr = ["I", " love", " JS"];
-  let str = '';
-
-  for (let i = 0; i < substr.length; i++) {
-    str+=substr[i];
+  const concatenatedString = substr.reduce((acc, curr) => acc += curr, '');
 }
-}
-
+ 
 /**
  * calculate a total of income of certain person
  */
@@ -78,10 +81,10 @@ function calculateDiscount(redemption) {
     otherExpences: -300
   };
   let total = 0;
-
+ 
   for (key in personIncomes) {
     total += personIncomes[key];
   }
 }
-
+ 
 module.exports = calculateDiscount;

@@ -5,55 +5,48 @@
  */
 function reverseString(str) {
   if (typeof str === 'number') {
-    return 'This is not a string';
+    return 'This is not a string!';
 }
-
+ 
 return str.split('').reverse().join('');
 }
-
+ 
 /**
  * 1. Calculate a century by given year
  * if a number is passed
 * @param {number} year
 */
 function centuryFromYear(year) {
-  return parseInt(year / 100 + 1);
+  return parseInt(
+    (year % 100 === 0) 
+      ? year / 100
+      : year / 100 + 1
+    );
 }
-
+ 
 /**
  * Calculate count of the provided char in the string
  * @param {string} str
  * @param {string} char
  */
-function strCount(str, char) {
-  let count = 0;
- 
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === char) {
-            count++;
-        }
-    }
- 
-    return count;
+function strCount(str, char) {
+  const regex = new RegExp(char, 'g');
+  const result = str.match(regex);
+  return result ? result.length : 0;
 }
-
+ 
 /**
  * We need to reduce the length of the string or truncate it if it is longer
  * than the given maximum length specified and add ... to the end. If it is not that long then we keep it as is.
  * @param {string} str - the initial string
  * @param {num} num - by wht amount of chars it should be truncated
  */
-function truncateString(str, num) {
-  let truncatedString = str;
- 
-    if (truncatedString.length > num) {
-        truncatedString.slice(0, num);
-        truncatedString += '…';
-    }
- 
-    return truncatedString;
+function truncateString(str, num) {
+  return (str.length > num)
+    ? str.slice(0, num) + '...'
+    : str;
 }
-
+ 
 /**
  * replace 10 with 'ten' word
  * @param {string} text - input text
@@ -62,13 +55,10 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
-  if (text.includes('10')) {
-    return text.replace('10', 'ten');
+  const regex = /10/g;
+  return text.replace(regex,"ten");
 }
-
-return text;
-}
-
+ 
 /**
  * replace value in square brackets with CONFIDENTIAL
  * @param text - input text
@@ -77,13 +67,9 @@ return text;
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-  const start = text.indexOf('[');
-  const end = text.indexOf(']');
-
-  const result = text.substr(0, start + 1) + 'CONFIDENTIAL' + text.substr(end, text.length);
-  return result;
+  return text.replace(/\[.*?\]/g, "[CONFIDENTIAL]")
 }
-
+ 
 module.exports = {
   reverseString,
   centuryFromYear,
