@@ -24,7 +24,7 @@ Object.setPrototypeOf(student, person);
 /**
  * create new instance of student using Object.create
  */
-const student2 = Object.create(student); // put you object here
+const student2 = Object.create(student);
  
 module.exports = {
     person,
