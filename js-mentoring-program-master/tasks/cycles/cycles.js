@@ -9,29 +9,67 @@
  * @param {number} redemption amount (0 - 9999)
  * @returns {number} discount in percent
  */
-
+ 
 function calculateDiscount(redemption) {
   let discount;
-
-  //PLACE YOUR CODE HERE
-
+ 
+  switch(true) {
+    case(redemption <= 350):
+      discount = 0;
+      break;
+    case(redemption <= 1350):
+      discount = 15;
+      break;
+    case(redemption <= 2700):
+      discount = 30;
+      break;
+    case(redemption <= 6500):
+      discount = 45;
+      break;
+    default:
+      discount = 0;
+  }
+ 
   return discount;
 }
-
+ 
 /** TODO
  * implement factorial algorithm using for, while, do..while operators
  */
 {
   const i = 10; //10! = 3628800
+  let fact = 1;
+ 
+// for
+    for (let i = 1; i <= 10; i++) {
+        fact *= i;
+    }
+ 
+// while
+    let index = 1;
+    fact = 1;
+    while (index <= 10) {
+        fact *= index;
+        index++;
+    }
+ 
+    index = 1;
+    fact = 1;
+// do .. while
+    do {
+        fact *= index;
+        index++;
+    } while (index <= 10);
 }
-
+ 
 /**
  * return concatenated string from an array of substring
  */
 {
   const substr = ["I", " love", " JS"];
+  const concatenatedString = substr.reduce((acc, curr) => acc += curr, '');
 }
-
+ 
 /**
  * calculate a total of income of certain person
  */
@@ -42,6 +80,11 @@ function calculateDiscount(redemption) {
     interestOnDeposit: 250,
     otherExpences: -300
   };
+  let total = 0;
+ 
+  for (key in personIncomes) {
+    total += personIncomes[key];
+  }
 }
-
+ 
 module.exports = calculateDiscount;
