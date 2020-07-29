@@ -44,14 +44,8 @@ function handleErrorCallback() {
  */
  
 function handlePromiseError() {
-    try {
-        promiseFunctionError()()
-          .then(r => console.log(`.then(${r})`))
-          .catch(e => console.error(`.catch(${e})`));
-      } catch (e) {
-        throw e;
+            promiseFunctionError.catch(e => console.error(`.catch(${e})`));
       }
-}
  
 /**
  * throw error come from promiseFunctionError using async/await
