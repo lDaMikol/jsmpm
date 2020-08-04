@@ -20,9 +20,8 @@ const testJson = require('./test.json');
 const entries = testJson.list.entries;
  
 const parsed = entries.map((entry) => {
-    const docId = `http://doc.epam.com/${entry.entry.name.slice(0, -5)}`;
     return {
-        docId
+        docId: `http://doc.epam.com/${entry.entry.name.slice(0, -5)}`
     }
 });
  

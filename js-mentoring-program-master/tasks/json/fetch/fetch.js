@@ -7,12 +7,15 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
  
-fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(result => result.filter(item => item.id < 20))
-    .then(response => 
-        fs.writeFile('response.json', JSON.stringify(response, null, 2), function (err) {
-            if (err) throw err;
-            console.log('File is created successfully.');
-        })
-    );
+async function fetchData() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await response.json();
+    const filteredData = data.filter(item => item.id < 20);
+ 
+    fs.writeFile('response.json', JSON.stringify(filteredData, null, 2), function (err) {
+        if (err) throw err;
+        console.log('File is created successfully.');
+    })
+}
+ 
+fetchData();
