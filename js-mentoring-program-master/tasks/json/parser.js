@@ -14,3 +14,18 @@
  * Please NOTE, that you should omit the .html extension
  * Please do the task in the scope of the file. Create a pull request a share it with your mentor.
  */
+const fs = require('fs');
+const testJson = require('./test.json');
+ 
+const entries = testJson.list.entries;
+ 
+const parsed = entries.map((entry) => {
+    return {
+        docId: `http://doc.epam.com/${entry.entry.name.slice(0, -5)}`
+    }
+});
+ 
+fs.writeFile('parsed.json', JSON.stringify(parsed, null, 2), function (err) {
+    if (err) throw err;
+    console.log('File is created successfully.');
+});
